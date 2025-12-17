@@ -10,7 +10,6 @@ import { routes } from './routes'
 
 import { store } from './store/index'
 
-// Router config
 const router = createRouter({
   history: createWebHistory(),
   routes,
@@ -19,12 +18,7 @@ const router = createRouter({
   },
 })
 
-// Create app instance first
 const app = createApp(App)
-
-// Use plugins BEFORE mounting
 app.use(router)
 app.use(store)
-
-// Mount app
 app.mount('#app')

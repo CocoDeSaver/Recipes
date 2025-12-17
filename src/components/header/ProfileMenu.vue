@@ -14,13 +14,11 @@
         </a>
         
         <ul class="dropdown-menu dropdown-menu-end shadow-sm">
-          <!-- User Info Section -->
           <li class="px-3 py-2 border-bottom" v-if="userInfo">
             <p class="mb-0 fw-semibold small">{{ userInfo.username || userInfo.firstName }}</p>
             <p class="mb-0 text-muted" style="font-size: 0.75rem">{{ userInfo.email }}</p>
           </li>
           
-          <!-- Menu Items -->
           <li>
             <router-link to="/user/personal-info" class="dropdown-item py-2">
               <i class="fa-solid fa-user me-2" style="width: 20px"></i>
@@ -64,20 +62,15 @@ import { computed } from "vue";
 const store = useStore();
 const router = useRouter();
 
-// ✅ Get user info from store
 const userInfo = computed(() => store.state.auth?.userLogin || null);
 
-// ✅ PERBAIKAN: Nama action yang benar adalah 'auth/logout' bukan 'auth/setUserlogout'
 const handleLogout = async () => {
   try {
-    // Dispatch action logout
     await store.dispatch("auth/logout");
     
-    // Redirect ke login page
     router.push("/login");
   } catch (error) {
     console.error("Logout error:", error);
-    // Tetap redirect meskipun ada error
     router.push("/login");
   }
 };
@@ -137,12 +130,10 @@ const handleLogout = async () => {
   color: #dc3545;
 }
 
-/* Remove default dropdown arrow styling */
 .dropdown-toggle::after {
   margin-left: 0.5rem;
 }
 
-/* Active route styling */
 .dropdown-item.router-link-active {
   background-color: #f0f0ff;
   color: #4c4ddc;
@@ -152,12 +143,10 @@ const handleLogout = async () => {
   color: #4c4ddc;
 }
 
-/* User info section */
 .border-bottom {
   border-color: rgba(0, 0, 0, 0.08) !important;
 }
 
-/* Mobile responsive */
 @media (max-width: 576px) {
   .dropdown-menu {
     min-width: 200px;

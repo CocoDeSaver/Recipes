@@ -65,13 +65,11 @@ const menuComponent = computed(() => {
   letter-spacing: -0.02em;
 }
 
-/* Search wrapper - centered */
 .search-wrapper {
   max-width: 500px;
   width: 100%;
 }
 
-/* Transition animations */
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.3s ease, transform 0.3s ease;
@@ -87,7 +85,6 @@ const menuComponent = computed(() => {
   transform: translateY(10px);
 }
 
-/* Responsive adjustments */
 @media (max-width: 991px) {
   .search-wrapper {
     max-width: 400px;
@@ -123,7 +120,6 @@ const menuComponent = computed(() => {
   }
 }
 
-/* Better spacing */
 .row {
   --bs-gutter-x: 1.5rem;
 }

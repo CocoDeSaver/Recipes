@@ -23,13 +23,11 @@ export default {
             state.recipes.push(payload);
         },
 
-        // ✅ TAMBAHKAN MUTATION INI
         updateRecipeInList(state, payload) {
             const index = state.recipes.findIndex(recipe => recipe.id === payload.id);
             if (index !== -1) {
                 state.recipes[index] = payload;
             }
-            // Update recipeDetail juga jika sedang dilihat
             if (state.recipeDetail && state.recipeDetail.id === payload.id) {
                 state.recipeDetail = payload;
             }
@@ -86,26 +84,21 @@ export default {
             }
         },
 
-        // ✅ TAMBAHKAN ACTION INI UNTUK UPDATE
         async updateRecipe({ commit, rootState }, payload) {
-            const { id, ...recipeData } = payload; // Pisahkan id dari data
+            const { id, ...recipeData } = payload; 
 
-            // Data yang akan di-update (tanpa mengubah data asli seperti createdAt, userId, dll)
             const updatedData = {
                 ...recipeData,
-                // Pertahankan field yang tidak boleh diubah
                 username: rootState.auth.userLogin.username,
                 userId: rootState.auth.userLogin.userId,
             };
 
             try {
-                // PUT request ke Firebase untuk update seluruh data
                 await axios.put(
                     `https://vue-js-project-b9029-default-rtdb.firebaseio.com/recipes/${id}.json?auth=${rootState.auth.token}`,
                     updatedData
                 );
 
-                // Update state lokal
                 commit('updateRecipeInList', { id, ...updatedData });
                 
                 return { success: true };

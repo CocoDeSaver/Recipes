@@ -7,8 +7,6 @@ import NavigationBar from "./NavigationBar.vue";
     <div class="container-fluid">
       <div class="container-md">
         <div class="d-flex justify-content-between align-items-center">
-          
-          <!-- Logo → Go to Homepage -->
           <router-link 
             :to="{ name: 'homePage' }" 
             class="logo-link"
@@ -21,7 +19,6 @@ import NavigationBar from "./NavigationBar.vue";
             />
           </router-link>
 
-          <!-- Navigation Bar -->
           <NavigationBar />
           
         </div>
@@ -44,7 +41,6 @@ import NavigationBar from "./NavigationBar.vue";
   transition: all 0.3s ease;
 }
 
-/* Logo styling */
 .logo-link {
   display: flex;
   align-items: center;
@@ -69,7 +65,6 @@ import NavigationBar from "./NavigationBar.vue";
   object-fit: contain;
 }
 
-/* Container adjustments */
 .container-fluid {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
@@ -79,12 +74,10 @@ import NavigationBar from "./NavigationBar.vue";
   max-width: 1200px;
 }
 
-/* Header shadow on scroll (optional enhancement) */
 .site-header.scrolled {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
   .site-header {
     padding: 0.75rem 0;
@@ -110,9 +103,8 @@ import NavigationBar from "./NavigationBar.vue";
   }
 }
 
-/* Ensure content doesn't hide under fixed header */
 :global(body) {
-  padding-top: 72px; /* Adjust based on actual header height */
+  padding-top: 72px; 
 }
 
 @media (max-width: 768px) {
