@@ -37,7 +37,8 @@ export default {
 
     actions: {
         async getLoginData({ commit, dispatch }, payload) {
-            const APIkey = "AIzaSyCjhZpmOpnlRxrz0wQMb2G2hlmKXBNpfQs";
+            // const APIkey = "AIzaSyCjhZpmOpnlRxrz0wQMb2G2hlmKXBNpfQs";
+            const APIkey = import.meta.env.VITE_FIREBASE_API_KEY;
             const authUrl = "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=";
             
             try {
@@ -77,7 +78,8 @@ export default {
         },
 
         async getRegisterData({ commit, dispatch }, payload) {
-            const APIkey = "AIzaSyCjhZpmOpnlRxrz0wQMb2G2hlmKXBNpfQs";
+            // const APIkey = "AIzaSyCjhZpmOpnlRxrz0wQMb2G2hlmKXBNpfQs";
+            const APIkey = import.meta.env.VITE_FIREBASE_API_KEY;
             const authUrl = "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=";
             
             try {
